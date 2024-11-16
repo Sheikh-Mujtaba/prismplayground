@@ -1,26 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import Navbar from './components/Navbar';
+import Main from './pages/Main';
 
-function App() {
+const App: React.FC = () => {
+  const [bgColor, setBgColor] = useState<string>('#ffffff'); // White color as the initial value
+  const [txtColor, setTxtColor] = useState<string>('#000000'); // White color as the initial value
+  const [primaryColor, setPrimaryColor] = useState<string>('#7c79b2'); // White color as the initial value
+  const [secondaryColor, setSecondaryColor] = useState<string>('#3026e1'); // White color as the initial value
+
+
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navbar bgColor={bgColor} txtColor={txtColor}  />
+      <Main bgColor={bgColor} txtColor={txtColor} setBgColor={setBgColor} 
+      setTxtColor={setTxtColor}  primaryColor={primaryColor} setPrimaryColor={setPrimaryColor} 
+      
+      secondaryColor={secondaryColor} setSecondaryColor={setSecondaryColor}/>
+
     </div>
   );
-}
+};
 
 export default App;
